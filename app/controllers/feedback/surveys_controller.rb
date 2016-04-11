@@ -2,6 +2,10 @@ require_dependency "feedback/application_controller"
 
 module Feedback
   class SurveysController < ApplicationController
+    def new
+      @survey_response = SurveyResponse.new
+    end
+
     def create
       Feedback::SurveyResponse.create!(survey_response_params)
       redirect_to thanks_path
